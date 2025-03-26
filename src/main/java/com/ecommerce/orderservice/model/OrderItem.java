@@ -2,7 +2,6 @@ package com.ecommerce.orderservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.query.Order;
 
 import java.math.BigDecimal;
 
@@ -19,7 +18,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    private OrderEntity orderEntity;
 
     private Long productId;
     private Integer quantity;

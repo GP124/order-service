@@ -2,7 +2,6 @@ package com.ecommerce.orderservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.query.Order;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,7 +19,7 @@ public class Payment {
 
     @OneToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    private OrderEntity orderEntity;
 
     private String paymentStatus;
     private String paymentMethod;

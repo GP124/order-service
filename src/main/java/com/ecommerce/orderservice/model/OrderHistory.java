@@ -2,7 +2,6 @@ package com.ecommerce.orderservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.query.Order;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +17,7 @@ public class OrderHistory {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    private OrderEntity orderEntity;
 
     private String status;
     private LocalDateTime changedAt;
