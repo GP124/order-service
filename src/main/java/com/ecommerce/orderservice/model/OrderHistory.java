@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@RequiredArgsConstructor
+
 public class OrderHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
