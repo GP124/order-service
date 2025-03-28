@@ -4,17 +4,15 @@ import com.ecommerce.orderservice.mapper.OrderItemMapper;
 import com.ecommerce.orderservice.model.OrderEntity;
 import com.ecommerce.orderservice.model.OrderItem;
 import com.ecommerce.orderservice.repositories.OrderItemRepository;
+import com.ecommerce.orderservice.service.OrderItemServiceInterface;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrderItemService {
+@AllArgsConstructor
+public class OrderItemService implements OrderItemServiceInterface {
     private final OrderItemRepository orderItemRepository;
     private final OrderItemMapper orderItemMapper;
-
-    public OrderItemService(OrderItemRepository orderItemRepository, OrderItemMapper orderItemMapper) {
-        this.orderItemRepository = orderItemRepository;
-        this.orderItemMapper = orderItemMapper;
-    }
 
     public OrderItem createOrderItem(OrderItem dto, OrderEntity orderEntity) {
         OrderItem orderItem = orderItemMapper.toEntity(dto);

@@ -5,17 +5,16 @@ import com.ecommerce.orderservice.mapper.PaymentMapper;
 import com.ecommerce.orderservice.model.OrderEntity;
 import com.ecommerce.orderservice.model.Payment;
 import com.ecommerce.orderservice.repositories.PaymentRepository;
+import com.ecommerce.orderservice.service.PaymentInterface;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PaymentService {
+@AllArgsConstructor
+public class PaymentService implements PaymentInterface {
     private final PaymentRepository paymentRepository;
     private final PaymentMapper paymentMapper;
 
-    public PaymentService(PaymentRepository paymentRepository, PaymentMapper paymentMapper) {
-        this.paymentRepository = paymentRepository;
-        this.paymentMapper = paymentMapper;
-    }
 
     public Payment processPayment(PaymentRequestDTO dto, OrderEntity orderEntity) {
         Payment payment = paymentMapper.toEntity(dto);

@@ -9,6 +9,7 @@ import com.ecommerce.orderservice.mapper.OrderMapper;
 import com.ecommerce.orderservice.model.OrderEntity;
 import com.ecommerce.orderservice.model.OrderItem;
 import com.ecommerce.orderservice.repositories.OrderRepository;
+import com.ecommerce.orderservice.service.OrderServiceInterface;
 import lombok.AllArgsConstructor;
 import org.hibernate.query.Order;
 import org.springframework.messaging.Message;
@@ -24,7 +25,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class OrderService {
+public class OrderService implements OrderServiceInterface {
     private final OrderRepository orderRepository;
     private final StateMachine<OrderState, OrderEvent> stateMachine;
     private final OrderMapper orderMapper;
@@ -55,7 +56,7 @@ public class OrderService {
         return orderMapper.toDTO(orderEntity);
     }
 
-    // Process order state transitions
+
     public OrderResponseDTO processOrder(Long orderId, OrderEvent event) {
         OrderEntity orderEntity = orderRepository.findById(orderId)
                 .orElseThrow(() -> new OrderNotFoundException("Order not found"));
