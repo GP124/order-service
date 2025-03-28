@@ -1,11 +1,11 @@
-package com.ecommerce.orderservice.dto;
+package com.ecommerce.orderservice.dto.request;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class OrderHistoryDTO {
+public class OrderHistoryRequestDTO {
     private String status;
     private LocalDateTime changedAt;
     private String notes;

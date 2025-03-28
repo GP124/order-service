@@ -6,8 +6,7 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItem {
@@ -22,4 +21,7 @@ public class OrderItem {
     private Long productId;
     private Integer quantity;
     private BigDecimal price;
+
+    public void setOrderItem(OrderEntity orderEntity) {
+    }
 }

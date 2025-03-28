@@ -24,4 +24,10 @@ public class Payment {
     private String paymentMethod;
     private LocalDateTime paymentDate;
     private BigDecimal amount;
+
+    public void setOrder(OrderEntity orderEntity) {
+    }
+
+    public void setStatus(String pending) {
+    }
 }

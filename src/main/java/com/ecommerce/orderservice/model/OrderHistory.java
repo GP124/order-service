@@ -23,4 +23,10 @@ public class OrderHistory {
     private LocalDateTime changedAt;
     private String notes;
 
+    public void setOrderItem(OrderEntity orderEntity) {
+    }
+
+    public void setUpdatedAt(LocalDateTime now) {
+
+    }
 }
